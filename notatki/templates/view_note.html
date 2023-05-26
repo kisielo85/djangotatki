@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>{{n.title}}</h2>
+    <p>content:{{n.content}}</p>
+    <p>autor:{{n.author}}</p>
+    <p>data:{{n.creation_date}}</p>
+    <p>id:{{n.id}}</p>
+
+    <form action="delete" method="post">
+        {% csrf_token %}
+        <input type="submit" value="usuń">
+    </form>
+
+    <form action="edit">
+        <input type="submit" value="edytuj">
+    </form>
+
+    <a href="/notatki/{{prev_n.id}}">poprzednia</a>({{prev_n.title}})<br>
+    <a href="/notatki/{{next_n.id}}">następna</a>({{next_n.title}})<br>
+
+    <a href="/notatki">powrót</a>
+</body>
+</html>
