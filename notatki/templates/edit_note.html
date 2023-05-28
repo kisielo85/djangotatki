@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/view.css' %}">
 </head>
 <body>
+    <form action="" method="POST" style="
+    display: flex;
+    height: 100%;">
     <div class="notatka">
         <div class="opcje">
             <form action="edit">
@@ -21,24 +24,22 @@
             </form>
         </div>
         <header>
-            {{n.title}}
+            <input type="text" name="title" value="{{n.title}}" style="font-size: 150%;">
         </header>
         <main>
             <div class="info">
                 <div style="display: flex;"><p class="author">{{n.author}}</p> <p class="date">{{n.creation_date}}</p></div>
             </div>
-            <form action="" method="POST" style="
-                display: flex;
-                height: 100%;">
+
                 {% csrf_token %}
-        
                 <textarea name="content" style="width: -webkit-fill-available;">{{n.content}}</textarea><br>
                 <input type="submit" value="zapisz">
-            </form>
+            
         </main>
         <footer>
             <a href="../">powrót</a>
         </footer>
     </div>
+</form>
 </body>
 </html>
