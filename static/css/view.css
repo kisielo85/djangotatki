@@ -1,0 +1,52 @@
+body,html{
+    display: grid;
+    height: 95%;
+}
+
+.notatka{
+    justify-self: center;
+    width: 90%;
+    background-color: rgb(238, 229, 135);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.notatka header{
+    padding-top: 20px;
+    background-color: rgb(223, 214, 114);
+    text-align: center;
+    font-size: 250%;
+
+}
+
+.notatka footer{
+    font-size: large;
+    text-align: center;
+    align-self: center;
+    margin-top: auto;
+    width: 100%
+}
+
+.date{
+    margin-left: auto;
+    margin-right: 2%;
+}
+.author{
+    margin-left: 2%;
+    font-size: 150%;
+}
+.desc{
+    font-size: large;
+    margin-left: 4%;
+}
+.opcje{
+    display: flex;
+    position: absolute;
+}
+a{
+    text-decoration: none;
+}
+input{
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}

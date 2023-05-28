@@ -1,30 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{n.title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/view.css' %}">
 </head>
 <body>
-    <h2>{{n.title}}</h2>
-    <p>content:{{n.content}}</p>
-    <p>autor:{{n.author}}</p>
-    <p>data:{{n.creation_date}}</p>
-    <p>id:{{n.id}}</p>
-
-    <form action="delete" method="post">
-        {% csrf_token %}
-        <input type="submit" value="usuń">
-    </form>
-
-    <form action="edit">
-        <input type="submit" value="edytuj">
-    </form>
-
-    <a href="/notatki/{{prev_n.id}}">poprzednia</a>({{prev_n.title}})<br>
-    <a href="/notatki/{{next_n.id}}">następna</a>({{next_n.title}})<br>
-
-    <a href="/notatki">powrót</a>
+    <div class="notatka">
+        <div class="opcje">
+            <form action="edit">
+                <input type="submit" value="edytuj">
+            </form> 
+            <form action="delete/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="usuń">
+            </form>
+        </div>
+        <header>
+            {{n.title}}
+        </header>
+        <main>
+            <div class="info">
+                <div style="display: flex;"><p class="author">{{n.author}}</p> <p class="date">{{n.creation_date}}</p></div>
+            </div>
+            <p class="desc">{{n.content}}</p>
+        </main>
+        <footer>
+            <div style="display: flex;"><a href="/notatki/{{prev_n.id}}">poprzednia</a>({{prev_n.title}})<a href="/notatki/{{next_n.id}}" style="margin-left: auto;">następna</a>({{next_n.title}})</div>
+            <a href="/notatki">powrót</a>
+        </footer>
+    </div>
 </body>
 </html>

@@ -37,8 +37,6 @@ def deleteNote(request, note_id):
 
 def editNote(request, note_id):
     note = get_object_or_404(Notatka, pk=note_id)
-    
-    note.next()
     if request.method == 'POST':
         form = addNoteForm(request.POST,instance=note)
         if form.is_valid():

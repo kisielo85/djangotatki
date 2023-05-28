@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
     {% for n in notatki %}
-    <div style="background-color: rgb(107, 107, 107); margin: 20px; padding: 10px;">
-        <h2><a href="{{n.id}}">{{n.title}}</a></h2>
-        <p>{{n.content}}</p>
-        <p>{{n.id}}</p>
+    <div class="notatka">
+        <header>
+            <div class="info">
+                <div style="display: flex;"><p class="author">{{n.author}}</p> <p class="date">{{n.creation_date}}</p></div>
+            </div>
+            <a href="{{n.id}}">{{n.title}}</a>
+        </header>
     </div>
     {% endfor %}
 

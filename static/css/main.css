@@ -1,0 +1,33 @@
+
+.notatka{
+    justify-self: center;
+    width: 100%;
+    background-color: rgb(238, 229, 135);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+}
+.notatka header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(223, 214, 114);
+    text-align: center;
+    display: grid;
+}
+.notatka header a{
+    font-size: 250%;
+}
+.date{
+    margin-left: auto;
+    margin-right: 2%;
+}
+.author{
+    margin-left: 2%;
+}
+a{
+    text-decoration: none;
+}
+input{
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
