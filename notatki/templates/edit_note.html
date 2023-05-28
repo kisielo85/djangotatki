@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{n.title}}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/view.css' %}">
+</head>
 <body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        nazwa:<br><input type="text" name="title" value="{{n.title}}"><br>
-        content:<br><textarea name="content" cols="30" rows="10">{{n.content}}</textarea><br>
-        <input type="submit" value="zapisz">
-    </form>
+    <div class="notatka">
+        <div class="opcje">
+            <form action="edit">
+                <input type="submit" value="edytuj">
+            </form> 
+            <form action="delete/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="usuń">
+            </form>
+        </div>
+        <header>
+            {{n.title}}
+        </header>
+        <main>
+            <div class="info">
+                <div style="display: flex;"><p class="author">{{n.author}}</p> <p class="date">{{n.creation_date}}</p></div>
+            </div>
+            <form action="" method="POST" style="
+                display: flex;
+                height: 100%;">
+                {% csrf_token %}
+        
+                <textarea name="content" style="width: -webkit-fill-available;">{{n.content}}</textarea><br>
+                <input type="submit" value="zapisz">
+            </form>
+        </main>
+        <footer>
+            <a href="../">powrót</a>
+        </footer>
+    </div>
 </body>
 </html>
